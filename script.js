@@ -22,3 +22,11 @@ fetch('text.txt')
         // show random text.txt
         document.getElementById('result2').innerHTML = textList[Math.floor(Math.random() * textList.length)];
     });
+
+
+function myFunction() {
+    var copyText = document.getElementById("result2");
+    copyText.select();
+    copyText.setSelectionRange(0, 99999); // For mobile devices
+    navigator.clipboard.writeText(copyText.value);
+}
