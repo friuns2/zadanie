@@ -3,8 +3,7 @@
 var xhttp = new XMLHttpRequest();
 xhttp.onreadystatechange = function() {
     if (this.readyState == 4 && this.status == 200) {
-        const textList = [];
-        textList.push(...this.responseText.trim().split('\n'));
+        const textList = this.responseText.trim().split('\n');
         // show random discords.txt
         for (let i = 1; i <6; i++) { var randomText = textList[Math.floor(Math.random() * textList.length)];
             document.getElementById('link'+i).innerHTML = randomText; document.getElementById('link'+i).href = randomText; }
@@ -19,8 +18,7 @@ xhttp.send();
 var xhttp = new XMLHttpRequest();
 xhttp.onreadystatechange = function() {
     if (this.readyState == 4 && this.status == 200) {
-        const textList = [];
-        textList.push(...this.responseText.trim().split('\n'));
+        const textList = this.responseText.trim().split('\n');
         // show random text.txt
         document.getElementById('result2').innerHTML = textList[Math.floor(Math.random() * textList.length)]; }
 };
