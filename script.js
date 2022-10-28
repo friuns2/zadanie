@@ -1,27 +1,32 @@
 
 // load list from file
-fetch('discords.txt')
-    .then(response => response.text())
-    .then(data => {
+var xhttp = new XMLHttpRequest();
+xhttp.onreadystatechange = function() {
+    if (this.readyState == 4 && this.status == 200) {
         const textList = [];
-        textList.push(...data.trim().split('\n'));
-        // show random text.txt
-        for (let i = 1; i <6; i++) {
-            var randomText = textList[Math.floor(Math.random() * textList.length)];
-            document.getElementById('link'+i).innerHTML = randomText;
-            document.getElementById('link'+i).href = randomText;
-        }
+        textList.push(...this.responseText.trim().split('\n'));
+        // show random discords.txt
+        for (let i = 1; i <6; i++) { var randomText = textList[Math.floor(Math.random() * textList.length)];
+            document.getElementById('link'+i).innerHTML = randomText; document.getElementById('link'+i).href = randomText; }
 
-    });
+    }
+};
+xhttp.open("GET", "discords.txt", true);
+xhttp.send();
 
-fetch('text.txt')
-    .then(response => response.text())
-    .then(data => {
+
+
+var xhttp = new XMLHttpRequest();
+xhttp.onreadystatechange = function() {
+    if (this.readyState == 4 && this.status == 200) {
         const textList = [];
-        textList.push(...data.trim().split('\n'));
+        textList.push(...this.responseText.trim().split('\n'));
         // show random text.txt
-        document.getElementById('result2').innerHTML = textList[Math.floor(Math.random() * textList.length)];
-    });
+        document.getElementById('result2').innerHTML = textList[Math.floor(Math.random() * textList.length)]; }
+};
+xhttp.open("GET", "text.txt", true);
+xhttp.send();
+
 
 
 function myFunction() {
